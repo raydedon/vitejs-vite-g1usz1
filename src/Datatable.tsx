@@ -11,7 +11,7 @@ function Datatable({ data }: DatatableProps) {
 
     useEffect(() => {
         setModel(messageData(data));
-    }, [model])
+    }, [data])
 
     /**
      * Modifying the referenced key value should update
@@ -23,7 +23,10 @@ function Datatable({ data }: DatatableProps) {
         console.log('args > ', { key, event });
 
         // logic to update model as soon as input changes
-        model[key] = event.target.value;
+        model[key] = {
+            ...model[key],
+            value: event.target.value
+        }
         setModel({...model});
         console.log('model', model);
     };
