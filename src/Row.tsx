@@ -11,11 +11,13 @@ const Row = ({ _key, _value, onChange, refer }: IRowProps) => {
     onChange(_key, e);
   };
 
+  const type = _key.includes('Color') ? 'text' : 'number';
+
   return (
     <tr>
       <td>{_key}</td>
       <td>
-        <input value={_value} disabled={refer} onChange={handleChange} />
+        <input value={_value} disabled={refer} onChange={handleChange} type={type}  />
       </td>
     </tr>
   );
